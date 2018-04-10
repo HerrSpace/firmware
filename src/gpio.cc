@@ -43,9 +43,9 @@ void GPIO::pinMode(const uint8_t pin, uint8_t mode)
 		break;
 		case 4:
 			if (mode == 1)
-				DDRA |= _BV(PA1);
+				DDRE |= _BV(PE3);
 			else
-				DDRA &= ~_BV(PA1);
+				DDRE &= ~_BV(PE3);
 		break;
 	}
 }
@@ -76,9 +76,9 @@ void GPIO::digitalWrite(const uint8_t pin, uint8_t value)
 		break;
 		case 4:
 			if (value == 1)
-				PORTA |= _BV(PA1);
+				PORTE |= _BV(PE3);
 			else
-				PORTA &= ~_BV(PA1);
+				PORTE &= ~_BV(PE3);
 		break;
 	}
 }
@@ -96,7 +96,7 @@ uint8_t GPIO::digitalRead(const uint8_t pin)
 		case 3:
 			return (PINC & _BV(PC2));
 		case 4:
-			return (PINA & _BV(PA1));
+			return (PINE & _BV(PE3));
 	}
 	return 0;
 }
